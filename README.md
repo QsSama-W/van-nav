@@ -1,63 +1,27 @@
 # Van Nav
+内容转载于[Mereithhh/van-nav](https://github.com/Mereithhh/van-nav)
 
-一个轻量的导航站，现在有搜索引擎集成了，很适合作为主页使用。有配套的[浏览器插件](https://github.com/Mereithhh/van-nav-extension)和 API。 [在线体验](https://demo-tools.mereith.com) (总有人改后台数据，后台密码就不放出来了)
-
-> 新增了 [API 文档](https://van-nav-api.mereith.dev)，用 AI 生成的，如果不准确请提 Issue 哦。
-
-## 预览
-
-### PC
-
-<img src="images/pc_preview.png" alt="PC" style="width: 100%;"/>
-
-### PAD
-
-<img src="images/pad_preview.png" alt="PAD" style="width: 100%;"/>
-
-### PHONE
-
-<img src="images/phone_preview.png" alt="PHONE" style="width: 100%;"/>
-
-### 后台设置
-
-<img src="images/login.jpg" alt="登录" style="width: 100%;"/>
-
-<img src="images/admin.jpg" alt="后台设置" style="width: 100%;"/>
-
-### 交流群
-
-<img src="images/qqqun.jpg" alt="交流群" style="height: 200px;"/>
-
-> qq 交流群： 873773083
-
-## 使用技巧/快捷键
-
-其实这个导航站有很多小设计，合理使用可以提高使用效率：
-
-- 只要在这个页面里，直接输入键盘任何按键，可以直接聚焦到搜索框开始输入。
-- 搜索完按回车会直接在新标签页打开第一个结果。
-- 搜索完按一下对应卡片右上角的数字按钮 + Ctrl(mac 也可以用 command 键) ，也会直接打开对应结果。
-
-另外可以设置跳转方式哦。
-
-## CHANGELOG
-
-具体请看 [CHANGELOG.md](CHANGELOG.md)
-
+一个轻量的导航站
+，其他说明文档请访问原链接，这里略过.
 ## 安装方法
 
-### Docker
+### Docker(宝塔面板)
 
 ```
-docker run -d --name tools --restart always -p 6412:6412 -v /path/to/your/data:/app/data mereith/van-nav:latest
+docker run -d --name tools --restart always -p 127.0.0.1:6412:6412 -v /path/to/your/data:/app/data mereith/van-nav:latest
 ```
 
 打开浏览器 [http://localhost:6412](http://localhost:6412) 即可访问。
 
 - 默认端口 6412
 - 默认账号密码 admin admin 第一次运行后请进入后台修改
+- 后台地址 [http://localhost:6412/admin](http://localhost:6412/admin) 
 - 数据库会自动创建在当前文件夹中： `nav.db`
+- 宝塔面板数据库地址/path/to/your/data/nav.db
 
+
+下面是其他方法
+---------------------------------
 ### 可执行文件
 
 下载 release 文件夹里面对应平台的二进制文件，直接运行即可。
@@ -152,19 +116,13 @@ sudo systemctl daemon-reload && sudo systemctl enable --now VanNav.service
 
 ## FQA
 
-- 忘记密码了怎么办： #36
+- 忘记密码了怎么办：密码是明文存储在 nav.db 文件，可将该文件拷贝至本地主机，使用支持sqlite数据库的图形化管理软件打开查看
 
 ## 参与开发
 
-最近重构过一次，整体的代码结构暂时不会有大变动，所以欢迎参与开发！
-
-如果你有 golang 和 react 开发经验，可以很轻松上手。
-
-如果没有方向，可以试试去解决 issue 里的问题或者开发新功能，开发之前可以先提个 issue 让我知道。
+这个请访问原链接[Mereithhh/van-nav](https://github.com/Mereithhh/van-nav)
 
 ## 状态
-
-可以优化的点太多了，慢慢完善吧……
 
 - [x] 多平台构建流水线
 - [x] 定制化 logo 和标题
